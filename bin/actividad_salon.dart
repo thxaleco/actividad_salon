@@ -15,6 +15,9 @@ void mostrarMenu() {
 }
 
 void main() {
-  final citas = <Cita>[];
-
+  int opcion;
+  do {
+    mostrarMenu();
+    opcion = leerEntero('Seleccione una opción: ');
+  }
 }
