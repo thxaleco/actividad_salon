@@ -11,3 +11,16 @@ int leerDia() {
   } while (dia < 1 || dia > 31);
   return dia;
 }
+
+String leerServicio() {
+  print('Servicios disponibles:');
+  servicios.forEach((nombre, precio) => print('- $nombre: \$${precio.toStringAsFixed(0)}'));
+
+  while (true) {
+    final escrito = leerTexto('Servicio: ').toLowerCase();
+    for (final nombre in servicios.keys) {
+      if (nombre.toLowerCase() == escrito) return nombre;
+    }
+    print('Ese servicio no existe.');
+  }
+}
