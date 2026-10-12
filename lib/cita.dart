@@ -11,6 +11,6 @@ class Cita {
   Cita(this.id, this.cliente, this.servicio, this.dia, this.hora, this.precio);
 
   void mostrarInformacion() {
-    print('[$id] $cliente | $servicio | día $dia a las $hora | \$$precio');
+    print('[$id] $cliente | $servicio | día $dia a las $hora | \$${precio.toStringAsFixed(0)}');
   }
 }

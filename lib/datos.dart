@@ -5,7 +5,7 @@ final Map<String, double> servicios = {
   'Tinte': 100000,
   'Uñas Semipermanentes': 50000,
   'Peinado': 75000,
-  'Cepillado': 60.000,
+  'Cepillado': 60000,
 };
 
 final List<String> horasDisponibles = [
