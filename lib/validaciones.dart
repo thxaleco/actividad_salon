@@ -24,3 +24,16 @@ String leerServicio() {
     print('Ese servicio no existe.');
   }
 }
+
+String leerHora() {
+  print('Horas disponibles:');
+  for (final h in horasDisponibles) {
+    print('- $h');
+  }
+
+  while (true) {
+    final hora = leerTexto('Hora (ej: 09:00): ');
+    if (horasDisponibles.contains(hora)) return hora;
+    print('Esa hora no está en el horario del salón.');
+  }
+}
