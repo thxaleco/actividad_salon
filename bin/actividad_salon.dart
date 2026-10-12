@@ -1,5 +1,7 @@
 import 'package:actividad_salon/datos.dart';
 import 'package:actividad_salon/entrada.dart';
+import 'package:actividad_salon/cita.dart';
+import 'package:actividad_salon/operaciones.dart';
 
 void mostrarMenu() {
   print('\n$nombreSalon - SISTEMA DE GESTIÓN DE CITAS');
@@ -15,14 +17,15 @@ void mostrarMenu() {
 }
 
 void main() {
-  int opcion;
-  do {
+    final citas = <Cita>[];
+    int opcion;
+    do {
     mostrarMenu();
     opcion = leerEntero('Seleccione una opción: ');
 
     switch (opcion) {
       case 1:
-        print('Registrar (pendiente)');
+        registrarCita(citas);
         break;
       case 2:
         print('Consultar (pendiente)');
