@@ -36,7 +36,8 @@ void main() {
         buscarCitas(citas);
         break;
       case 4:
-        print('Modificar');
+        modificarCita(citas, horariosOcupados);
+        
         break;
       case 5:
         print('Eliminar');

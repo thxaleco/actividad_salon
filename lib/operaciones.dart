@@ -66,3 +66,51 @@ void buscarCitas(List<Cita> citas) {
     cita.mostrarInformacion();
   }
 }
+
+Cita? buscarPorId(List<Cita> citas, int id) {
+  for (final cita in citas) {
+    if (cita.id == id) return cita;
+  }
+  return null;
+}
+void modificarCita(List<Cita> citas, Set<String> horariosOcupados) {
+  print('\n--- Modificar cita ---');
+
+  if (citas.isEmpty) {
+    print('No hay citas para modificar.');
+    return;
+  }
+
+  final id = leerEntero('Id de la cita a modificar: ');
+  final cita = buscarPorId(citas, id);
+  if (cita == null) {
+    print('No existe una cita con ese id.');
+    return;
+  }
+
+  cita.mostrarInformacion();
+  print('1. Cambiar servicio  2. Cambiar día 3. Cambiar hora');
+  final opcion = leerEntero('Opción: ');
+
+  switch (opcion) {
+    case 1:
+      final nuevoServicio = leerServicio();
+      cita.servicio = nuevoServicio;
+      cita.precio = servicios[nuevoServicio]!;
+      print('Servicio actualizado.');
+      break;
+    case 2:
+      final nuevoDia = leerDia();
+      if (horariosOcupados.add('$nuevoDia')) {
+        horariosOcupados.remove('${cita.dia}');
+        cita.dia = nuevoDia;
+        print('Día actualizado.');
+      } else {
+        print('Ese día ya está ocupado. No se hicieron cambios.');
+      }
+      break;
+    
+    default:
+      print('Opción no válida.');
+  }
+}
