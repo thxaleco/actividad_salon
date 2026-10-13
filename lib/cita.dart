@@ -1,5 +1,4 @@
 class Cita {
-  // Atributos
   int id;
   String cliente;
   String servicio;

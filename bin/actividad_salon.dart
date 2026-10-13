@@ -1,6 +1,6 @@
+import 'package:actividad_salon/cita.dart';
 import 'package:actividad_salon/datos.dart';
 import 'package:actividad_salon/entrada.dart';
-import 'package:actividad_salon/cita.dart';
 import 'package:actividad_salon/operaciones.dart';
 
 void mostrarMenu() {
@@ -17,30 +17,32 @@ void mostrarMenu() {
 }
 
 void main() {
-    final citas = <Cita>[];
-    int opcion;
-    do {
+  final citas = <Cita>[];
+  final horariosOcupados = <String>{};
+
+  int opcion;
+  do {
     mostrarMenu();
     opcion = leerEntero('Seleccione una opción: ');
 
     switch (opcion) {
       case 1:
-        registrarCita(citas);
+        registrarCita(citas, horariosOcupados);
         break;
       case 2:
-        print('Consultar (pendiente)');
+        mostrarCitas(citas);
         break;
       case 3:
-        print('Buscar (pendiente)');
+        buscarCitas(citas);
         break;
       case 4:
-        print('Modificar (pendiente)');
+        print('Modificar');
         break;
       case 5:
-        print('Eliminar (pendiente)');
+        print('Eliminar');
         break;
       case 6:
-        print('Resumen (pendiente)');
+        print('Resumen');
         break;
       case 0:
         print('Hasta pronto.');
