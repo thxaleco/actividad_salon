@@ -140,4 +140,15 @@ void eliminarCita(List<Cita> citas, Set<String> horariosOcupados) {
     return;
   }
 
+  cita.mostrarInformacion();
+  final confirmacion =
+      leerTexto('¿Seguro que quieres eliminarla? (s/n): ').toLowerCase();
+
+  if (confirmacion == 's') {
+    citas.remove(cita);
+    horariosOcupados.remove('${cita.dia}-${cita.hora}');
+    print('Cita eliminada.');
+  } else {
+    print('Operación cancelada.');
+  }
 }
