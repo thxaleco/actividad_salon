@@ -109,8 +109,35 @@ void modificarCita(List<Cita> citas, Set<String> horariosOcupados) {
         print('Ese día ya está ocupado. No se hicieron cambios.');
       }
       break;
+      case 3:
+      final nuevaHora = leerHora();
+      if (horariosOcupados.add('${cita.dia}-$nuevaHora')) {
+        horariosOcupados.remove('${cita.dia}-${cita.hora}');
+        cita.hora = nuevaHora;
+        print('Hora actualizada.');
+      } else {
+        print('Ese horario ya está ocupado. No se hicieron cambios.');
+      }
+      break;
     
     default:
       print('Opción no válida.');
   }
+}
+
+void eliminarCita(List<Cita> citas, Set<String> horariosOcupados) {
+  print('\n--- Eliminar cita ---');
+
+  if (citas.isEmpty) {
+    print('No hay citas para eliminar.');
+    return;
+  }
+
+  final id = leerEntero('Id de la cita a eliminar: ');
+  final cita = buscarPorId(citas, id);
+  if (cita == null) {
+    print('No existe una cita con ese id.');
+    return;
+  }
+
 }

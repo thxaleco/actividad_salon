@@ -40,7 +40,7 @@ void main() {
         
         break;
       case 5:
-        print('Eliminar');
+        eliminarCita(citas, horariosOcupados);
         break;
       case 6:
         print('Resumen');
