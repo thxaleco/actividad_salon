@@ -101,12 +101,12 @@ void modificarCita(List<Cita> citas, Set<String> horariosOcupados) {
       break;
     case 2:
       final nuevoDia = leerDia();
-      if (horariosOcupados.add('$nuevoDia')) {
-        horariosOcupados.remove('${cita.dia}');
+      if (horariosOcupados.add('$nuevoDia-${cita.hora}')) {
+        horariosOcupados.remove('${cita.dia}-${cita.hora}');
         cita.dia = nuevoDia;
         print('Día actualizado.');
       } else {
-        print('Ese día ya está ocupado. No se hicieron cambios.');
+        print('Ese horario ya está ocupado ese día. No se hicieron cambios.');
       }
       break;
       case 3:

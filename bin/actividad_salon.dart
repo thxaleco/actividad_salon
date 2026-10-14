@@ -37,7 +37,6 @@ void main() {
         break;
       case 4:
         modificarCita(citas, horariosOcupados);
-        
         break;
       case 5:
         eliminarCita(citas, horariosOcupados);
