@@ -152,3 +152,26 @@ void eliminarCita(List<Cita> citas, Set<String> horariosOcupados) {
     print('Operación cancelada.');
   }
 }
+void mostrarResumen(List<Cita> citas) {
+  print('\n--- Resumen del día ---');
+
+  final dia = leerDia();
+  var ocupados = 0;
+
+  print('\nResumen del día $dia');
+  print('Citas por servicio:');
+  for (final servicio in servicios.keys) {
+    var cantidad = 0;
+    for (final cita in citas) {
+      if (cita.dia == dia && cita.servicio == servicio) {
+        cantidad = cantidad + 1;
+      }
+    }
+    print('- $servicio: $cantidad');
+    ocupados = ocupados + cantidad;
+  }
+
+  final totalEspacios = horasDisponibles.length;
+  print('Espacios ocupados: $ocupados de $totalEspacios');
+  print('Espacios libres: ${totalEspacios - ocupados}');
+}

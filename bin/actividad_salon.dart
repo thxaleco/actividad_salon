@@ -43,7 +43,7 @@ void main() {
         eliminarCita(citas, horariosOcupados);
         break;
       case 6:
-        print('Resumen');
+        mostrarResumen(citas);
         break;
       case 0:
         print('Hasta pronto.');
